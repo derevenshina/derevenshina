@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LegoParsing</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="app_icon.png" />
+</head>
+<body>
+  <canvas id="bg-animation"></canvas>
+
+  <div id="intro">
+    <img src="app_icon.png" alt="Лого" class="intro-logo">
+    <h1 class="intro-text">Привет</h1>
+  </div>
+
+  <div id="main-content" class="hidden">
+    <header>
+      <div class="container header-content">
+        <img src="app_icon.png" alt="Логотип" class="logo" />
+        <h1>LegoParsing</h1>
+        <nav>
+          <a href="#" id="apps-nav">Приложения</a>
+          <a href="#" id="data-nav">Данные</a>
+          <button id="theme-toggle">🌗</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="app-card data-card hidden" id="data-card" style="display: none;">
+        <div class="app-img" style="background-image: url('excelLogo.jpg');"></div>
+        <div class="app-content">
+          <h2>База данных</h2>
+          <p>Здесь вы сможете скачать исходный файл Excel с базой данных.</p>
+          <a class="download-btn" href="https://disk.yandex.ru/i/BYh2Mp9fOl7snw" target="_blank" rel="noopener">Скачать</a>
+        </div>
+      </section>
+
+      <section class="app-card android-card" id="android">
+        <div class="app-img" style="background-image: url('android.jpg');"></div>
+        <div class="app-content">
+          <h2>Android App</h2>
+          <p>Приложение для Android. Удобно, быстро, с кайфом. Поддерживает все устройства.</p>
+          <a class="download-btn" href="https://disk.yandex.ru/d/ArdvF2V_Ixad9w" target="_blank" rel="noopener">Скачать</a>
+        </div>
+      </section>
+
+      <section class="app-card reverse windows-card" id="windows">
+        <div class="app-img" style="background-image: url('windows.jpg');"></div>
+        <div class="app-content">
+          <h2>Windows App</h2>
+          <p>Версия под Windows. Работает стабильно, не требует установки, просто запускай.</p>
+          <a class="download-btn" href="https://disk.yandex.ru/d/U0ZALnWgfCdAYA" target="_blank" rel="noopener">Скачать</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 kusurgashev. All rights reserved.</p>
+        <p>Контакт: egorkusurgash2007@gmail.com</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
