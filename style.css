@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* === INTRO === */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 2s ease, visibility 2s ease;
+}
+
+#intro.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-logo {
+  width: 120px;
+  animation: zoomIn 1s ease-out;
+}
+
+.intro-text {
+  font-size: 3rem;
+  color: #fff;
+  margin-top: 1rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  pointer-events: auto;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* === HEADER === */
+header {
+  background: var(--header-bg);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 20px #bb86fc33;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: var(--logo-title);
+  font-weight: 700;
+}
+
+nav a {
+  color: var(--nav-link);
+  margin-left: 1rem;
+  transition: color 0.3s;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #9dfffa;
+}
+
+/* === CARDS === */
+.app-card {
+  display: flex;
+  overflow: hidden;
+  margin: 3rem auto;
+  margin-bottom: 6rem;
+  max-width: 1000px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px #bb86fc22;
+  background: var(--card-bg);
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.app-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.app-card.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 1.2s, transform 1.2s;
+}
+
+.app-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.app-img {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.app-card.reverse .app-img {
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--card-heading);
+  font-weight: 700;
+}
+
+.app-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.download-btn {
+  margin-top: 1.5rem;
+  background: #9df4ff;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.download-btn:hover {
+  background: #8cdeff;
+  text-decoration: none;
+}
+
+.android-card .download-btn,
+.windows-card .download-btn {
+  color: inherit;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.android-card .download-btn:hover {
+  background: #00ff7f33;
+  text-decoration: none;
+}
+
+.windows-card .download-btn:hover {
+  background: #00bfff33;
+  text-decoration: none;
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--header-bg);
+  text-align: center;
+  padding: 2rem;
+  color: var(--footer-text);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .app-card, .app-card.reverse {
+    flex-direction: column;
+  }
+
+  .app-img, .app-card.reverse .app-img {
+    clip-path: none;
+    height: 200px;
+  }
+}
+
+/* === BG ANIMATION === */
+#bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* === THEME === */
+:root[data-theme='dark'] {
+  --bg: #0a0a0a;
+  --text: #fff;
+  --accent: #a7f9ff;
+  --header-bg: #111;
+  --card-bg: #1a1a1a;
+  --card-heading: #97d5ff;
+  --nav-link: #fff;
+  --footer-text: #777;
+  --logo-title: #fff;
+}
+
+:root[data-theme='light'] {
+  --bg: #f5f5f5;
+  --text: #111;
+  --accent: #8afbff;
+  --header-bg: #e0e0e0;
+  --card-bg: #fff;
+  --card-heading: #0077c2;
+  --nav-link: #111;
+  --footer-text: #555;
+  --logo-title: #111;
+}
+
+#theme-toggle {
+  margin-left: 1rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#theme-toggle:hover {
+  color: var(--accent);
+}
+
+/* === Card Theming === */
+.android-card .app-content h2,
+.android-card .download-btn {
+  color: #00ff7f;
+  background: transparent;
+  border: none;
+}
+
+.windows-card .app-content h2,
+.windows-card .download-btn {
+  color: #00bfff;
+  background: transparent;
+  border: none;
+}
+
+/* .data-card теперь не требует отдельного позиционирования, просто наследует стили app-card */
+.data-card {
+  /* Наследует стили app-card, чтобы занимать то же место */
+  margin-bottom: 6rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+.data-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.data-card.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
